@@ -71,7 +71,7 @@ export class CSSTransitionGroup extends Component {
 		this.forceUpdate();
 
 		nextChildMapping.forEach( c => {
-			let { key } = c,
+			let key = getKey(c),
 				hasPrev = prevChildMapping && inChildren(prevChildMapping, c);
 			if (showProp) {
 				if (hasPrev) {
@@ -88,7 +88,7 @@ export class CSSTransitionGroup extends Component {
 		});
 
 		prevChildMapping.forEach( c => {
-			let { key } = c,
+			let key = getKey(c),
 				hasNext = nextChildMapping && inChildren(nextChildMapping, c);
 			if (showProp) {
 				if (hasNext) {
